@@ -6,7 +6,7 @@ export function openFileDialog(focusedWindow: Electron.WebContents):void {
 
     dialog.showOpenDialog({
         filters: [
-            { name: "Log File", extensions: ["txt", "json", "clef"]},
+            { name: "Log File", extensions: ["log", "txt", "json", "clef"]},
             { name: 'All Files', extensions: ['*'] }
         ],
         properties: ["openFile"],
