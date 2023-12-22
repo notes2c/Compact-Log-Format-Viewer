@@ -58,6 +58,7 @@
                                 <tr ng-repeat="(key, val) in log.properties">
                                     <th>{{key}}</th>
                                     <td ng-switch on="key">
+                                        <a ng-switch-when="TransactionId" ng-click="vm.findItem(key, val.value)" title="Find Logs with Transaction ID" class="btn btn-primary">{{val.value}}</a>
                                         <a ng-switch-when="HttpRequestNumber" ng-click="vm.findItem(key, val.value)" title="Find Logs with Request ID" class="btn btn-primary">{{val.value}}</a>
                                         <a ng-switch-when="SourceContext" ng-click="vm.findItem(key, val.value)" title="Find Logs with Namespace" class="btn btn-primary">{{val.value}}</a>
                                         <a ng-switch-when="MachineName" ng-click="vm.findItem(key, val.value)" title="Find Logs with Machine Name" class="btn btn-primary">{{val.value}}</a>
