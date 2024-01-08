@@ -32,7 +32,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat-start="log in vm.logitems.items" ng-click="log.open = !log.open" class="item" ng-class="{'open': log.open}">
-                    <td class="timestamp">{{ log.timestamp | date:'dd-MM-yyyy HH:mm:ss' }}</td>
+                    <td class="timestamp">{{ log.timestamp | date:'dd-MM-yyyy HH:mm:ss,sss' }}</td>
                     <td><span class="badge" ng-class="log.level | lowercase">{{ log.level }}</span></td>
                     <td>{{ log.renderedMessage }}</td>
                 </tr>
@@ -63,6 +63,9 @@
                                         <a ng-switch-when="SourceContext" ng-click="vm.findItem(key, val.value)" title="Find Logs with Namespace" class="btn btn-primary">{{val.value}}</a>
                                         <a ng-switch-when="MachineName" ng-click="vm.findItem(key, val.value)" title="Find Logs with Machine Name" class="btn btn-primary">{{val.value}}</a>
                                         <a ng-switch-when="RequestUrl" ng-href="{{val.value}}" target="_blank" rel="noopener" title="Open">{{val.value}}</a>
+                                        <a ng-switch-when="ProcessName" ng-click="vm.findItem(key, val.value)" title="Find Logs with Process Name" class="btn btn-primary">{{val.value}}</a>
+                                        <a ng-switch-when="Listener_Scope" ng-click="vm.findItem(key, val.value)" title="Find Logs belonging to a Listener scope" class="btn btn-primary">{{val.value}}</a>
+                                        <a ng-switch-when="Transaction_Scope" ng-click="vm.findItem(key, val.value)" title="Find Logs belonging to a Transaction scope" class="btn btn-primary">{{val.value}}</a>
                                         <div ng-switch-default>
                                             <span ng-if="val.value !== undefined">{{val.value}}</span>
                                             <div ng-if="val.properties || val.elements" ng-include="'nestedTable'"></div>
